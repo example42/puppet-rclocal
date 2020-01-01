@@ -1,6 +1,7 @@
 fixtures:
   repositories:
     "stdlib": "https://github.com/puppetlabs/puppetlabs-stdlib.git"
+    "systemd": "https://forge.puppet.com/camptocamp/systemd.git"
   symlinks:
     "rclocal": "#{source_dir}"
 

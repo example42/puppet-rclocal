@@ -57,14 +57,15 @@ class rclocal(
 
   if $facts['service_provider'] == 'systemd' {
     ### Systemd support
-    file { '/etc/systemd/system/rc-local.service':
-      ensure  => file,
-      mode    => '0644',
+    systemd::unit_file { 'rc-local.service':
+      ensure  => 'present',
       content => epp('rclocal/systemd_rc-local.service.epp'),
+      notify  => Service['rc-local'],
     }
     service { 'rc-local':
-      ensure => running,
-      enable => true,
+      ensure  => running,
+      enable  => true,
+      require => Class['systemd::systemctl::daemon_reload'],
     }
   }
 

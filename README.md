@@ -17,6 +17,8 @@ This module manages rc.local entries in /etc/rc.local file directory.
 
 This module uses Data Types from puppetlabs-stdlib!
 
+Systemd based systems will need [camptocamp/systemd](https://forge.puppet.com/camptocamp/systemd).
+
 ## Usage
 
 To only manage the content of rc.local file:
